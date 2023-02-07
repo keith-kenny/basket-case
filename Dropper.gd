@@ -12,14 +12,6 @@ func _ready():
 
 func _physics_process(delta):
 	position.y += speed * delta
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func randomise_position():
-	pass
 	
 func randomise_speed():
 	speed = rand_range(min_speed, max_speed)
