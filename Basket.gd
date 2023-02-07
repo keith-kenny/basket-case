@@ -10,9 +10,6 @@ var screen_size
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
-	var dropper = test_dropper.instance()
-	dropper.position = Vector2(100,100)
-	add_child(dropper)
 	
 func get_input():
 	velocity = Vector2()
