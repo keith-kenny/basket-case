@@ -1,3 +1,25 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://Dropper.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 5, 9, 0, 0, 0, 0, 1022, 13 )
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 1 )
+Dropper = ExtResource( 2 )
+
+[node name="DropperPath" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="DroperSpawnLocation" type="PathFollow2D" parent="DropperPath"]
+position = Vector2( 5, 9 )
+rotation = 0.00393301
+
+[node name="DropperSpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="DropperSpawnTimer" to="." method="_on_DropperSpawnTimer_timeout"]
