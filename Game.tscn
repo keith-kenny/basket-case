@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game.gd" type="Script" id=1]
 [ext_resource path="res://Dropper.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Basket.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ScoreLabel.gd" type="Script" id=4]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -11,6 +13,7 @@ _data = {
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
 Dropper = ExtResource( 2 )
+Basket = ExtResource( 3 )
 
 [node name="DropperPath" type="Path2D" parent="."]
 curve = SubResource( 1 )
@@ -21,5 +24,16 @@ rotation = 0.00393301
 
 [node name="DropperSpawnTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Label" type="Label" parent="."]
+margin_left = 850.0
+margin_top = 20.0
+margin_right = 1198.0
+margin_bottom = 75.0
+text = "Score: 0"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="timeout" from="DropperSpawnTimer" to="." method="_on_DropperSpawnTimer_timeout"]

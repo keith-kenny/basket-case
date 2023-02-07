@@ -7,7 +7,8 @@
 extents = Vector2( 27.5, 27.5 )
 
 [node name="Dropper" type="RigidBody2D"]
-position = Vector2( 112, 69 )
+position = Vector2( 113, 69 )
+scale = Vector2( 1.00082, 1 )
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
