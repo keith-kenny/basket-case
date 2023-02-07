@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
 # Speed Related Variables
-export (int) var speed = 250
+export (int) var speed = 550
 var velocity = Vector2()
+var screen_size
 
 func get_input():
 	print("Getting Input...")
@@ -18,9 +19,9 @@ func get_input():
 func _physics_process(delta):
 	print("Physics Process Occurring")
 	get_input()
-	velocity = move_and_slide(velocity)
+	position += velocity * delta
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	screen_size = get_viewport_rect().size
 
