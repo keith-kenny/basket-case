@@ -16,6 +16,7 @@ func _on_DropperSpawnTimer_timeout():
 	$DropperPath/DroperSpawnLocation.offset = randi()
 	var dropper = Dropper.instance()
 	dropper.position = $DropperPath/DroperSpawnLocation.position
-	dropper.connect("collected", $Label, "_on_Dropper_collected")
+	dropper.connect("collected", $HUD/ScoreLabel, "update_score")
+	dropper.connect("not_collected", $HUD/MissLabel, "update_miss")
 	add_child(dropper)
 	pass # Replace with function body.
