@@ -20,3 +20,7 @@ func _on_DropperSpawnTimer_timeout():
 	dropper.connect("not_collected", $HUD/MissLabel, "update_miss")
 	add_child(dropper)
 	pass # Replace with function body.
+
+
+func _on_MissLabel_gameover():
+	get_tree().quit()

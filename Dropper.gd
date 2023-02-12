@@ -4,6 +4,7 @@ signal not_collected
 
 export var min_gravity = 2
 export var max_gravity = 4
+var collected= false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,12 +15,12 @@ func _ready():
 func randomise_gravity_scale():
 	gravity_scale = rand_range(min_gravity, max_gravity)
 
-func _on_VisibilityNotifier2D_screen_exited():
-	print("I have left the screen")
-	emit_signal("not_collected")
-	queue_free()
-
 func collect():
 	emit_signal("collected")
+	collected = true
 	queue_free()
-	
+
+func _on_VisibilityNotifier2D_screen_exited():
+	if not collected:
+		emit_signal("not_collected")
+	queue_free()

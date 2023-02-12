@@ -1,4 +1,5 @@
 extends Label
+signal gameover
 
 var allowed_misses = 0
 
@@ -11,6 +12,8 @@ func _ready():
 func update_miss():
 	if allowed_misses > 0:
 		allowed_misses = allowed_misses - 1
+	else:
+		emit_signal("gameover")
 	
 	text = str(allowed_misses)
 	

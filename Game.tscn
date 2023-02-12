@@ -64,3 +64,4 @@ __meta__ = {
 }
 
 [connection signal="timeout" from="DropperSpawnTimer" to="." method="_on_DropperSpawnTimer_timeout"]
+[connection signal="gameover" from="HUD/MissLabel" to="." method="_on_MissLabel_gameover"]
